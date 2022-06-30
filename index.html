@@ -1,0 +1,31 @@
+<style>
+    .container {
+        cursor: pointer;
+    }
+    .pop-over {
+        border: 1px solid;
+        padding: 5px;
+        margin: 5px;
+    }
+</style>
+<span id="element">Hover on me!!</span>
+
+<script>
+    const element = document.getElementById('element');
+    element.className = 'container';
+    const popOverElement = document.createElement('span');
+    popOverElement.className = 'pop-over'
+    element.addEventListener('mouseenter', (e) => {
+        popOverElement.innerHTML= 'this is pop over element';
+        element.appendChild(popOverElement);
+    })
+    element.addEventListener('mouseleave', (e) => {
+        element.removeChild(popOverElement);
+    })
+    popOverElement.addEventListener('mouseenter', (e) => {
+        element.removeChild(popOverElement);
+    })
+    popOverElement.addEventListener('mouseleave', (e) => {
+        element.removeChild(popOverElement);
+    })
+</script>
